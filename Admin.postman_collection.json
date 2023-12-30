@@ -1,0 +1,475 @@
+{
+	"info": {
+		"_postman_id": "55ab3cb1-c269-46cb-8dae-af6ba9b3e992",
+		"name": "Admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27573092",
+		"_collection_link": "https://gold-flare-466483.postman.co/workspace/edukoya-one-on-one~48a897ee-ade1-44e7-9f91-e3d445d21352/collection/27573092-55ab3cb1-c269-46cb-8dae-af6ba9b3e992?action=share&creator=27573092&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"postman.setEnvironmentVariable(\"adminToken\", pm.response.json().token)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daniel.agoziem@edukoya.com\",\n    \"password\": \"qwertyui\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Complete Onboarding",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"secret\": \"daniel.edukoya@gmail.com\",\n    \"password\": \"12345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/create-password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"create-password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Management",
+					"item": [
+						{
+							"name": "Add admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstname\": \"Daniel\",\n    \"lastname\": \"string\",\n    \"phone\": \"07056774446\",\n    \"email\": \"daniel.agoziem@edukoya.com\",\n    \"address\": \"string\",\n    \"password\": \"12345678\",\n    \"roleId\": 4\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/add",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Role",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/add-role",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"add-role"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Class",
+					"item": [
+						{
+							"name": "Create Live Class",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"name\": \"jumbo plan\",\n  \"planId\": 1,\n  \"tutorId\": 1,\n  \"topicId\": 2,\n  \"scheduleType\": \"free\",\n  \"channel\": \"live_stream\",\n   \"startDate\": \"2023-06-15 15:53:02\",\n  \"endDate\": \"2023-06-15 15:53:02\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/class",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"class"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Recorded Live Class",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"name\": \"jumbo plan\",\n  \"planId\": 1,\n  \"tutorId\": 1,\n  \"topicId\": 2,\n  \"scheduleType\": \"free\",\n  \"channel\": \"live_stream\",\n   \"startDate\": \"2023-06-15 15:53:02\",\n  \"endDate\": \"2023-06-15 15:53:02\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/class",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"class"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Classes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/class/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"class",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dashboard",
+					"item": [
+						{
+							"name": "Get Dashboard Count",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/dashboard/count?time=year",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"dashboard",
+										"count"
+									],
+									"query": [
+										{
+											"key": "time",
+											"value": "month",
+											"disabled": true
+										},
+										{
+											"key": "time",
+											"value": "day",
+											"disabled": true
+										},
+										{
+											"key": "time",
+											"value": "year"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Class Percentage",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/dashboard/class-percentage?time=year",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"dashboard",
+										"class-percentage"
+									],
+									"query": [
+										{
+											"key": "time",
+											"value": "month",
+											"disabled": true
+										},
+										{
+											"key": "time",
+											"value": "day",
+											"disabled": true
+										},
+										{
+											"key": "time",
+											"value": "year"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Admin Count Copy",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/dashboard/class-percentage",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"dashboard",
+												"class-percentage"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "5"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "4"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "60"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "170"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"aa-luTcLzr//25ny6lX4caiT9FyJbo\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 03 Jul 2023 08:51:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Get Class percentage success\",\n    \"data\": {\n        \"totalLiveClasses\": 71,\n        \"totalOneOnOneClasses\": 0,\n        \"totalClasses\": 71,\n        \"liveClassPercentage\": 100,\n        \"oneOnOneClassPercentage\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Recent",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/dashboard/recent?type=students",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"dashboard",
+										"recent"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "students"
+										},
+										{
+											"key": "type",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/dashboard/recent?type=students",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"dashboard",
+												"recent"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "students"
+												},
+												{
+													"key": "type",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "5"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "2"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "26"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1723"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6bb-z9m9dEQq+f18tlWnWqcuEVMfhhg\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 03 Jul 2023 09:10:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Get recent success\",\n    \"data\": [\n        {\n            \"id\": 259,\n            \"childFirstName\": \"Daniel\",\n            \"childLastName\": \"lawrence\",\n            \"about\": null,\n            \"classId\": 12,\n            \"curriculumId\": null,\n            \"preferredProgramId\": null,\n            \"userId\": 78,\n            \"student_device\": \"laptop\",\n            \"gender\": \"male\",\n            \"classType\": \"group\",\n            \"birthday\": \"2003-12-03T00:00:00.000Z\",\n            \"createdAt\": \"2023-06-29T13:09:42.861Z\",\n            \"updatedAt\": null,\n            \"airtableId\": null,\n            \"subjects\": []\n        },\n        {\n            \"id\": 258,\n            \"childFirstName\": \"Stefan\",\n            \"childLastName\": \"lawrence\",\n            \"about\": null,\n            \"classId\": 12,\n            \"curriculumId\": null,\n            \"preferredProgramId\": null,\n            \"userId\": 78,\n            \"student_device\": \"laptop\",\n            \"gender\": \"male\",\n            \"classType\": \"group\",\n            \"birthday\": \"2003-12-03T00:00:00.000Z\",\n            \"createdAt\": \"2023-06-29T13:09:42.759Z\",\n            \"updatedAt\": null,\n            \"airtableId\": null,\n            \"subjects\": []\n        },\n        {\n            \"id\": 257,\n            \"childFirstName\": \"jameson\",\n            \"childLastName\": \"lawrence\",\n            \"about\": null,\n            \"classId\": 12,\n            \"curriculumId\": null,\n            \"preferredProgramId\": null,\n            \"userId\": 78,\n            \"student_device\": \"laptop\",\n            \"gender\": \"male\",\n            \"classType\": \"group\",\n            \"birthday\": \"2003-12-03T00:00:00.000Z\",\n            \"createdAt\": \"2023-06-29T13:06:59.845Z\",\n            \"updatedAt\": null,\n            \"airtableId\": null,\n            \"subjects\": []\n        },\n        {\n            \"id\": 256,\n            \"childFirstName\": \"takena\",\n            \"childLastName\": \"lawrence\",\n            \"about\": null,\n            \"classId\": 12,\n            \"curriculumId\": null,\n            \"preferredProgramId\": null,\n            \"userId\": 78,\n            \"student_device\": \"laptop\",\n            \"gender\": \"male\",\n            \"classType\": \"group\",\n            \"birthday\": \"2003-12-03T00:00:00.000Z\",\n            \"createdAt\": \"2023-06-29T13:06:59.833Z\",\n            \"updatedAt\": null,\n            \"airtableId\": null,\n            \"subjects\": []\n        },\n        {\n            \"id\": 255,\n            \"childFirstName\": \"jameson\",\n            \"childLastName\": \"lawrence\",\n            \"about\": null,\n            \"classId\": 12,\n            \"curriculumId\": null,\n            \"preferredProgramId\": null,\n            \"userId\": 78,\n            \"student_device\": \"laptop\",\n            \"gender\": \"male\",\n            \"classType\": \"group\",\n            \"birthday\": \"2003-12-03T00:00:00.000Z\",\n            \"createdAt\": \"2023-06-29T13:05:56.908Z\",\n            \"updatedAt\": null,\n            \"airtableId\": null,\n            \"subjects\": []\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
